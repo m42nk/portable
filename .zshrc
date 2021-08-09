@@ -19,8 +19,8 @@ zstyle ':vcs_info:git:*' formats '%B%F{blue}[%b]%f'
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' formats ' [%F{blue}%b%f]' 
 
-export PROMPT='%B%F{blue}%~%f%b 
-%B[%n%F{blue}@%f%m]%b '
+export PROMPT='%B[%F{blue}%~%f]%b 
+%B%n%F{blue}@%f%m -> %b '
 
 setopt histignorealldups sharehistory
 
@@ -62,3 +62,5 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # Source aliasses
 [ -f $HOME/.aliasrc ] && source $HOME/.aliasrc
+
+alias temp="vcgencmd measure_temp"
