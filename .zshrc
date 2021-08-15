@@ -62,5 +62,10 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # Source aliasses
 [ -f $HOME/.aliasrc ] && source $HOME/.aliasrc
+[ -f $HOME/.profile ] && source $HOME/.profile
+
+if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
+  tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
+fi
 
 alias temp="vcgencmd measure_temp"
